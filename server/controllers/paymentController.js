@@ -2,31 +2,19 @@ import { instance } from "../server.js";
 import crypto from "crypto";
 import { Payment } from "../models/paymentModel.js";
 
-export const checkout1 = async (req, res) => {
-  const options1 = {
-    amount: Number(req.body.amount1 * 100),
+export const checkout = async (req, res) => {
+  const options = {
+    amount: Number(req.body.amount * 100),
     currency: "INR",
   };
-  const order1 = await instance.orders.create(options1);
+  const order = await instance.orders.create(options);
 
   res.status(200).json({
     success: true,
-    order1,
+    order,
   });
 };
 
-export const checkout2 = async (req, res) => {
-  const options2 = {
-    amount: Number(req.body.amount2 * 100),
-    currency: "INR",
-  };
-  const order2 = await instance.orders.create(options2);
-
-  res.status(200).json({
-    success: true,
-    order2,
-  });
-};
 
 export const paymentVerification = async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =

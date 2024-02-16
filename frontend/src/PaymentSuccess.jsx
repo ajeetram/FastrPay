@@ -1,11 +1,13 @@
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { useSearchParams } from "react-router-dom"
+
 const PaymentSuccess = () => {
 
     const seachQuery = useSearchParams()[0]
 
-    const referenceNum = seachQuery.get("reference")
+    const referenceNum = seachQuery.get("reference");
+
     return (
         <Box>
             <VStack h="100vh" justifyContent={"center"}>
@@ -13,7 +15,7 @@ const PaymentSuccess = () => {
                 <Heading textTransform={"uppercase"}> Order Successfull</Heading>
 
                 <Text>
-                    Reference No.{referenceNum}
+                    Reference No.{referenceNum}      
                 </Text>
 
             </VStack>
@@ -21,4 +23,4 @@ const PaymentSuccess = () => {
     )
 }
 
-export default PaymentSuccess
+export default PaymentSuccess;
